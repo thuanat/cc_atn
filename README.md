@@ -1,7 +1,7 @@
 # Chạy PHP project với docker và docker-compose
 
-## Xóa docker version cũ:
-yum remove -y docker \
+## 1.Xóa docker version cũ:
+             yum remove -y docker \
                   docker-client \
                   docker-client-latest \
                   docker-common \
@@ -10,31 +10,31 @@ yum remove -y docker \
                   docker-logrotate \
                   docker-engine
 
-## Thêm link chứa docker version mới:
+## 2.Thêm link chứa docker version mới:
 	yum install -y yum-utils
 	yum-config-manager \
    	--add-repo \
     	https://download.docker.com/linux/centos/docker-ce.repo
 
-## Install docker
+## 3.Install docker
 	yum install -y docker-ce docker-ce-cli containerd.io \
  	docker-buildx-plugin docker-compose-plugin
 
-## Start docker service:
-systemctl start docker
-systemctl enable docker
+## 4.Start docker service:
+	systemctl start docker
+	systemctl enable docker
 
-## Mở firewall
-firewall-cmd --permanent --add-sevice=http
-firewall-cmd --permanent --add-sevice=https
-firewall-cmd --permanent --add-port=8080/tcp
-firewall-cmd --permanent --add-port=8080/udp
+## 5.Mở firewall
+	firewall-cmd --permanent --add-sevice=http
+	firewall-cmd --permanent --add-sevice=https
+	firewall-cmd --permanent --add-port=8080/tcp
+	firewall-cmd --permanent --add-port=8080/udp
 
-## Tắt Selinux
-sed -i s/^SELINUX=.*$/SELINUX=disabled/ /etc/selinux/config
-reboot
+## 6.Tắt Selinux
+	sed -i s/^SELINUX=.*$/SELINUX=disabled/ /etc/selinux/config
+	reboot
 
-## Vào thư mục chứa project
-docker-compose up -d
+## 7.Vào thư mục chứa project
+	docker-compose up -d
 
 
