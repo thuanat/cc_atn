@@ -29,6 +29,7 @@
 	firewall-cmd --permanent --add-sevice=https
 	firewall-cmd --permanent --add-port=8080/tcp
 	firewall-cmd --permanent --add-port=8080/udp
+	firewall-cmd --reload
 
 ## 6.Tắt Selinux
 	sed -i s/^SELINUX=.*$/SELINUX=disabled/ /etc/selinux/config
